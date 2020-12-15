@@ -1,0 +1,57 @@
+[FATAL_ERROR] Cannot start Maven: No valid Maven installation found. Either set the home directory in the <a href="#">configuration dialog</a> or set the M2_HOME environment variable on your system.
+
+无法正常联网下载jar包
+找mysql-connector-java-5.1.26.pom.lastupdated 和_remote.repositories删了  Repository/
+Repository删error文件夹
+
+13798074044
+
+用doc命令窗口设置 D:\soft\redis-289   redis.windows.conf 
+RDB 添加save 20 3
+AOF 设置appendonly yes，生成appendonly.aof文件
+192.168.198.128
+
+JRebel插件
+
+ZustomerException
+
+package com.itheima.exception;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * SpringMVC自定义的异常处理类，处理所有控制器的异常
+ */
+
+@Component
+public class ZustomerException implements HandlerExceptionResolver{
+
+    // 所有控制器方法出现了异常，自动来到resolveException()方法中
+    @Override
+    public ModelAndView resolveException(
+            HttpServletRequest request,
+            HttpServletResponse response, Object handler, Exception ex) {
+
+        ModelAndView mv = new ModelAndView();
+        // 出现指定的异常，跳转到指定的错误页面。
+        if (ex instanceof NullPointerException){
+            // 空指针异常对应的错误页面
+            mv.setViewName("null9999");
+        } else {
+            // 其他所有的服务端异常，都自动跳转到500.jsp
+            mv.setViewName("5009999");
+        }
+
+        mv.addObject("errorMsg","系统忙，稍后再试！或者联系管理员：120!");
+
+        return mv;
+    }
+}
+
+aside.jsp页面的sessionScope
+
